@@ -1,0 +1,22 @@
+{% extends "basic_app/base.html" %}
+
+
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron" style="background:transparent !important">
+    <h1>Django Level Five</h1>
+    {% if user.is_authenticated %}
+        <h2>Welcome {{ user.username}}!</h2>
+    {% else %}
+    <div class="container ">
+      <h2>Welcome to the site!</h2>
+      <br>
+      <br>
+        <button class="btn btn-lg btn-info "><a href="../basic_app/user_login">Login</a>  </button>
+        <button class="btn btn-lg btn-info "><a href="{% url 'basic_app:register' %}">Sign In</a>  </button>
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
